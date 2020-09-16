@@ -4,6 +4,9 @@
 TCP port check:
 `nc -zv HOST PORT`
 
+Get only matching strings with grep -o: 
+`grep -o '[^/]*\.mydoma\.in' myfile`
+
 ## Windows CMD
 Force clean shutddown:
 `shutdown /s /f /t 0`
