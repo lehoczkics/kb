@@ -1,46 +1,46 @@
 # Personal long-term command cache
 
 ## Linux
-TCP port check:
+TCP port check:<br>
 `nc -zv HOST PORT`
 
-Get only matching strings ( example: *.mydoma.in ) with grep -o:
+Get only matching strings ( example: *.mydoma.in ) with grep -o:<br>
 `grep -o '[^/]*\.mydoma\.in' myfile`
 
-Get public IPv4 address:
+Get public IPv4 address:<br>
 `dig -4 +short myip.opendns.com @resolver1.opendns.com`
 
-Publish current directory via HTTP on port 8000:
+Publish current directory via HTTP on port 8000:<br>
 `python3 -m http.server 8000 &`
 
-unix timestamp to normal date:
+unix timestamp to normal date:<br>
 `date -d @<unixtime>`
 
-List of available SSL ciphers of example.com:
+List of available SSL ciphers of example.com:<br>
 `nmap --script ssl-enum-ciphers -p 443 www.example.com`<br>
 `sslscan example.com`
 
-generate load; 1 CPU core to 100%:
+generate load; 1 CPU core to 100%:<br>
 `yes > /dev/null &`
 
-tcpdump capture traffic on specified port:
+tcpdump capture traffic on specified port:<br>
 `tcpdump -peni any -w /tmp/capture.pcap -s 0 host HOSTNAME port PORT`
 
 udpdump: add `-A udp` to above
 
 ## Windows CMD
-Force clean shutddown:
+Force clean shutdown:<br>
 `shutdown /s /f /t 0`
 
-Force checkdisk on next reboot:
+Force checkdisk on next reboot:<br>
 `chkdsk C: /f /r /x`
 
-System info:
+System info:<br>
 `systeminfo /FO csv > machine.csv`
 `gpresult.exe /F /H machine.html`
 
 ## Windows PowerShell
-Enable ps1 file execution:
+Enable ps1 file execution:<br>
 `Set-ExecutionPolicy Bypass -Scope Process -Force`
 
 Telnet client:
@@ -82,5 +82,5 @@ Fingerprint a cert:<br>
 `openssl x509 -fingerprint -noout -in mycert.crt [-sha1 -md5]`
 
 ## Misc
-regex to match xml tags and content:
+regex to match xml tags and content:<br>
 `<mytag>[\s\S]*?<\/mytag>`
