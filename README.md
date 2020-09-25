@@ -49,6 +49,38 @@ $tcp = New-Object System.Net.Sockets.TcpClient
 $tcp.connect('<remote server>', <port>)
 ```
 
+## OpenSSL
+Cert debug:<br>
+```
+openssl s_server -accept PORT -cert ca.cert -key ca.key
+openssl s_client -CAfile ca.cert -connect HOST:PORT
+openssl s_client -host HOST -port PORT
+openssl s_client -connect localhost:PORT
+```
+
+Read pem(base64 format) cert:<br>
+`openssl x509 -noout -text -in mycert.pem`
+
+Read CSR:<br>
+`openssl req -noout -text -in mycsr.csr`
+
+Generate new CSR and key:<br>
+`openssl req -nodes -new -newkey  rsa:2048 -out mycsr.csr -keyout mykey.key`
+
+Generate new CSR from existing key:<br>
+`openssl req -nodes -new -key my_existing.key -out mynewcsr.csr`
+
+Generate new CSR from existing certificate and Key:<br>
+`openssl x509 -x509toreq -in my_existing.crt -signkey my_existing.key -out mynew.csr`
+
+Verify a cert matches a private key:
+```
+openssl x509 -noout -modulus -in mycert.crt
+openssl rsa -noout -modulus -in mykey.key
+```
+Fingerprint a cert:<br>
+`openssl x509 -fingerprint -noout -in mycert.crt [-sha1 -md5]`
+
 ## Misc
 regex to match xml tags and content:
 `<mytag>[\s\S]*?<\/mytag>`
