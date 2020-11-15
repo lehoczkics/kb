@@ -28,6 +28,9 @@ tcpdump capture traffic on specified port:<br>
 
 udpdump: add `-A udp` to above
 
+Remove duplicate lines from **file** in one step (without sorting it first):<br>
+`awk ‘!seen[$0]++’ file`
+
 ## Windows CMD
 Force clean shutdown:<br>
 `shutdown /s /f /t 0`
