@@ -34,6 +34,9 @@ Remove duplicate lines from **file** in one step (without sorting it first):<br>
 Edit command line in $EDITOR:<br>
 **Ctrl-X Ctrl-E**
 
+Import a repo's gpg key into a separate keyring:<br>
+`sudo apt-key --keyring /etc/apt/trusted.gpg.d/mykeyring.gpg add /path/to/mykey.key`
+
 ## Windows CMD
 Force clean shutdown:<br>
 `shutdown /s /f /t 0`
