@@ -31,6 +31,10 @@ udpdump: add `-A udp` to above
 Remove duplicate lines from **file** in one step (without sorting it first):<br>
 `awk ‘!seen[$0]++’ file`
 
+Remove all snapshots from a ZFS dataset:<br>
+`zfs destroy -rvn dataset_or_zvol_name@%`
+remove `-n` if you really want to kill them
+
 Edit command line in $EDITOR:<br>
 **Ctrl-X Ctrl-E**
 
