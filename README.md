@@ -41,6 +41,9 @@ Edit command line in $EDITOR:<br>
 Import a repo's gpg key into a separate keyring:<br>
 `sudo apt-key --keyring /etc/apt/trusted.gpg.d/mykeyring.gpg add /path/to/mykey.key`
 
+ssh connection throug a jumphost. Will end up as root at host given as parameter\
+`function jump () { ssh -o ServerAliveInterval=60 -J <jumphost name> $1 -t 'sudo -i; bash -l' }`
+
 ## Windows CMD
 Force clean shutdown:<br>
 `shutdown /s /f /t 0`
