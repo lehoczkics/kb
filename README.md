@@ -44,6 +44,12 @@ Import a repo's gpg key into a separate keyring:<br>
 ssh connection throug a jumphost. Will end up as root at host given as parameter\
 `function jump () { ssh -o ServerAliveInterval=60 -J <jumphost name> $1 -t 'sudo -i; bash -l' }`
 
+### ZFS
+
+Delete zfs snapshots matching a pattern:<br>
+`zfs list -t snapshot -H -o name -r [parent dataset] | grep [pattern] | xargs -n1 echo`
+If you got what you want; substitute `echo` with `zfs destroy`
+
 ## Windows CMD
 Force clean shutdown:<br>
 `shutdown /s /f /t 0`
