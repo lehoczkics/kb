@@ -105,4 +105,16 @@ Fingerprint a cert:<br>
 
 ## Misc
 regex to match xml tags and content:<br>
-`<mytag>[\s\S]*?<\/mytag>`
+```
+<mytag>[\s\S]*?<\/mytag>
+```
+
+git config snippet for gpg signing commits:<br>
+```
+[user]
+	email = csaba[AT]lehoczki[.]me
+	name = "Csaba Lehoczki"
+	signingkey = AB4E2EC3812ACEE8
+[commit]
+	gpgsign = true
+```
