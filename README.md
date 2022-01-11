@@ -71,6 +71,12 @@ $tcp = New-Object System.Net.Sockets.TcpClient
 $tcp.connect('<remote server>', <port>)
 ```
 
+wget:
+```
+Invoke-Webrequest -Uri <source> -OutFile <destination>
+```
+
+
 ## OpenSSL
 Cert debug:<br>
 ```
