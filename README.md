@@ -76,6 +76,11 @@ wget:
 Invoke-Webrequest -Uri <source> -OutFile <destination>
 ```
 
+grep: `Select-String is the full name, abbrev sls:`
+```
+sls pattern .\filename
+```
+
 
 ## OpenSSL
 Cert debug:<br>
