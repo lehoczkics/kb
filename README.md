@@ -50,6 +50,24 @@ Delete zfs snapshots matching a pattern:<br>
 `zfs list -t snapshot -H -o name -r [parent dataset] | grep [pattern] | xargs -n1 echo`
 If you got what you want; substitute `echo` with `zfs destroy`
 
+
+zfs send/receive via SSH (one command only; slover but safer)
+```
+zfs send -R zpool/dataset/name@snapshot-to-send | ssh TARGET sudo zfs receive -Fu zpool/dataset/name
+```
+
+zfs send/receive via netcat - plain bitstream instead of ssh tunnel (faster and less CPU intensive)\
+Source machine:
+```
+zfs send -R zpool/dataset/name@snapshot-to-send | nc -w 20 TARGETHOST PORT
+```
+
+Target machine:
+```
+nc -lp PORT | zfs receive zpool/dataset/name
+```
+
+
 ## Windows CMD
 Force clean shutdown:<br>
 `shutdown /s /f /t 0`
