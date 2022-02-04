@@ -44,6 +44,18 @@ Import a repo's gpg key into a separate keyring:<br>
 ssh connection throug a jumphost. Will end up as root at host given as parameter\
 `function jump () { ssh -o ServerAliveInterval=60 -J <jumphost name> $1 -t 'sudo -i; bash -l' }`
 
+### git
+
+Cherry-picking a range of commits without actually committing them so that you can edit further and even squash them:\
+`git cherry-pick -n abcd1234^..bcde2345`
+
+Fancy trail-like commit track graph: (aliased to *gloga* by git plugin by the way)\
+`git log --oneline --decorate --grap --all`
+
+Compare a file content between branches:\
+`git diff mybranch master -- where/is/the/file`
+
+
 ### ZFS
 
 Delete zfs snapshots matching a pattern:<br>
