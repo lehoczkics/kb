@@ -49,7 +49,7 @@ ssh connection throug a jumphost. Will end up as root at host given as parameter
 Cherry-picking a range of commits without actually committing them so that you can edit further and even squash them:\
 `git cherry-pick -n abcd1234^..bcde2345`
 
-Fancy trail-like commit track graph: (aliased to *gloga* by git plugin by the way)\
+Fancy trail-like commit track graph: [aliased to *gloga* by git plugin by the way](https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/git.plugin.zsh#L225)\
 `git log --oneline --decorate --grap --all`
 
 Compare a file content between branches:\
@@ -69,14 +69,13 @@ zfs send -R zpool/dataset/name@snapshot-to-send | ssh TARGET sudo zfs receive -F
 ```
 
 zfs send/receive via netcat - plain bitstream instead of ssh tunnel (faster and less CPU intensive)\
-Source machine:
-```
-zfs send -R zpool/dataset/name@snapshot-to-send | nc -w 20 TARGETHOST PORT
-```
-
-Target machine:
+First start listener on target machine and pipe it to `zfs receive`:
 ```
 nc -lp PORT | zfs receive zpool/dataset/name
+```
+Send snapshot stream recursively from the source machine:
+```
+zfs send -R zpool/dataset/name@snapshot-to-send | nc -w 20 TARGETHOST PORT
 ```
 
 
