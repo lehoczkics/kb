@@ -58,23 +58,25 @@ Compare a file content between branches:\
 
 ### ZFS
 
-Delete zfs snapshots matching a pattern:<br>
-`zfs list -t snapshot -H -o name -r [parent dataset] | grep [pattern] | xargs -n1 echo`
+Delete zfs snapshots matching a pattern:
+```sh
+zfs list -t snapshot -H -o name -r [parent dataset] | grep [pattern] | xargs -n1 echo
+```
 If you got what you want; substitute `echo` with `zfs destroy`
 
 
 zfs send/receive via SSH (one command only; slover but safer)
-```
+```sh
 zfs send -R zpool/dataset/name@snapshot-to-send | ssh TARGET sudo zfs receive -Fu zpool/dataset/name
 ```
 
 zfs send/receive via netcat - plain bitstream instead of ssh tunnel (faster and less CPU intensive)\
 First start listener on target machine and pipe it to `zfs receive`:
-```
+```sh
 nc -lp PORT | zfs receive zpool/dataset/name
 ```
 Send snapshot stream recursively from the source machine:
-```
+```sh
 zfs send -R zpool/dataset/name@snapshot-to-send | nc -w 20 TARGETHOST PORT
 ```
 
@@ -92,21 +94,23 @@ System info:<br>
 
 ## Windows PowerShell
 Enable ps1 file execution:<br>
-`Set-ExecutionPolicy Bypass -Scope Process -Force`
+```powershell
+Set-ExecutionPolicy Bypass -Scope Process -Force
+```
 
 Telnet client:
-```
+```powershell
 $tcp = New-Object System.Net.Sockets.TcpClient
 $tcp.connect('<remote server>', <port>)
 ```
 
 wget:
-```
+```powershell
 Invoke-Webrequest -Uri <source> -OutFile <destination>
 ```
 
 grep: `Select-String is the full name, abbrev sls:`
-```
+```powershell
 sls pattern .\filename
 ```
 
